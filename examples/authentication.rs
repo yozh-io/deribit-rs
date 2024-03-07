@@ -3,7 +3,7 @@ use deribit::{
     models::{AuthRequest, Currency, GetPositionsRequest, PrivateSubscribeRequest},
     DeribitBuilder,
 };
-use dotenv::dotenv;
+use dotenvy::dotenv;
 use env_logger::init;
 use futures::StreamExt;
 use std::env::var;

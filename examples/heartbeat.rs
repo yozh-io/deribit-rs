@@ -3,7 +3,7 @@ use deribit::{
     models::{HeartbeatType, SetHeartbeatRequest, SubscriptionParams, TestRequest},
     DeribitBuilder,
 };
-use dotenv::dotenv;
+use dotenvy::dotenv;
 use env_logger::init;
 use futures::StreamExt;
 

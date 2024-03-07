@@ -3,7 +3,7 @@ use deribit::{
     models::{AuthRequest, BuyRequest, SellRequest},
     DeribitBuilder,
 };
-use dotenv::dotenv;
+use dotenvy::dotenv;
 use fehler::throws;
 use std::env::var;
 
@@ -11,7 +11,7 @@ use std::env::var;
 #[tokio::main]
 async fn main() {
     let _ = dotenv();
-
+   
     let key = var("DERIBIT_KEY").unwrap();
     let secret = var("DERIBIT_SECRET").unwrap();
 

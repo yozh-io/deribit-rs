@@ -5,7 +5,7 @@ use deribit::{
     },
     DeribitBuilder,
 };
-use dotenv::dotenv;
+use dotenvy::dotenv;
 use env_logger::init;
 use fehler::throws;
 use futures::StreamExt;
