@@ -4,6 +4,7 @@ use deribit::{
     DeribitBuilder,
 };
 use dotenvy::dotenv;
+use env_logger::init;
 use fehler::throws;
 use std::env::var;
 
@@ -11,7 +12,7 @@ use std::env::var;
 #[tokio::main]
 async fn main() {
     let _ = dotenv();
-   
+    init();
     let key = var("DERIBIT_KEY").unwrap();
     let secret = var("DERIBIT_SECRET").unwrap();
 
@@ -24,9 +25,9 @@ async fn main() {
 
     let req = BuyRequest::market("BTC-PERPETUAL", 10f64);
     let resp = client.call(req).await?;
-    println!("{:?}", resp.await?);
+    println!("{:#?}", resp.await?);
 
     let req = SellRequest::market("BTC-PERPETUAL", 10f64);
     let resp = client.call(req).await?;
-    println!("{:?}", resp.await?);
+    println!("{:#?}", resp.await?);
 }
