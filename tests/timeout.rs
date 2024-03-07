@@ -1,11 +1,14 @@
 use anyhow::Error;
 use deribit::{models::HelloRequest, Deribit};
+use dotenvy::dotenv;
 use std::time::Duration;
 use tokio::runtime::Runtime;
 
 #[test]
 #[should_panic]
 fn timeout() {
+    let _ = dotenv();
+
     let drb = Deribit::builder()
         .timeout(Duration::from_millis(1))
         .build()

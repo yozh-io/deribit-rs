@@ -7,6 +7,7 @@ use deribit::{
     },
     Deribit, DeribitBuilder, DeribitError,
 };
+use dotenvy::dotenv;
 use fehler::throws;
 use futures::StreamExt;
 use std::env::var;
@@ -24,6 +25,7 @@ struct SubscriptionTest {
 
 impl Default for SubscriptionTest {
     fn default() -> Self {
+        let _ = dotenv();
         let _ = env_logger::try_init();
         Self {
             key: var("DERIBIT_KEY").unwrap(),

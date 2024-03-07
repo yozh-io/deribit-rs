@@ -7,6 +7,7 @@ use deribit::{
     },
     DeribitBuilder,
 };
+use dotenvy::dotenv;
 use fehler::throws;
 use std::{env::var, time::Duration};
 use tokio::{runtime::Runtime, time::sleep};
@@ -14,6 +15,8 @@ use tokio::{runtime::Runtime, time::sleep};
 #[test]
 #[throws(Error)]
 fn get_order_state() {
+    let _ = dotenv();
+
     let key = var("DERIBIT_KEY").unwrap();
     let secret = var("DERIBIT_SECRET").unwrap();
 
