@@ -35,9 +35,9 @@ impl DeribitAPIClient {
         timeout: Duration,
     ) -> DeribitAPIClient {
         DeribitAPIClient {
-            wstx: wstx,
-            waiter_tx: waiter_tx,
-            timeout: timeout,
+            wstx,
+            waiter_tx,
+            timeout,
             id: 0,
         }
     }
@@ -121,7 +121,7 @@ pub struct DeribitAPICallResult<R> {
 
 impl<R> DeribitAPICallResult<R> {
     pub(crate) fn new(inner: DeribitAPICallRawResult<R>) -> Self {
-        DeribitAPICallResult { inner: inner }
+        DeribitAPICallResult { inner }
     }
 }
 
