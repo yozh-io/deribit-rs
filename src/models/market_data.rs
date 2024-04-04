@@ -147,6 +147,7 @@ pub struct GetInstrumentsResponse {
     pub settlement_period: String,
     pub strike: Option<f64>,
     pub tick_size: f64,
+    pub max_leverage: u32,
 }
 
 impl Request for GetInstrumentsRequest {
