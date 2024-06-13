@@ -60,6 +60,23 @@ pub struct GetPositionsResponse {
 }
 
 crate::define_request! {
+    Name => GetPosition;
+    Method => "private/get_position";
+    Request => {
+        pub instrument_name: String,
+    };
+    Response => GetPositionsResponse;
+}
+
+impl GetPositionRequest {
+    pub fn new(instrument_name: impl Into<String>) -> Self {
+        Self {
+            instrument_name: instrument_name.into(),
+        }
+    }
+}
+
+crate::define_request! {
     Name => GetAccountSummary;
     Method => "private/get_account_summary";
     Request => {
