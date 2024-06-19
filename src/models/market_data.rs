@@ -91,6 +91,25 @@ impl Request for GetIndexRequest {
 }
 
 #[derive(Deserialize, Serialize, Clone, Debug, Default)]
+pub struct GetInstrumentRequest {
+    pub instrument_name: String,
+}
+
+impl GetInstrumentRequest {
+    pub fn new(instrument_name: impl Into<String>) -> Self {
+        Self {
+            instrument_name: instrument_name.into(),
+        }
+    }
+}
+
+impl Request for GetInstrumentRequest {
+    const METHOD: &'static str = "public/get_instrument";
+
+    type Response = GetInstrumentsResponse;
+}
+
+#[derive(Deserialize, Serialize, Clone, Debug, Default)]
 pub struct GetInstrumentsRequest {
     pub currency: Currency,
     #[serde(skip_serializing_if = "Option::is_none")]

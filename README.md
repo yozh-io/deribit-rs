@@ -147,6 +147,7 @@ while let Some(message) = subscription.next().await {
     - [ ] /public/get_funding_rate_value
     - [ ] /public/get_historical_volatility
     - [x] /public/get_index
+    - [x] /public/get_instrument
     - [x] /public/get_instruments
     - [ ] /public/get_last_settlements_by_currency
     - [ ] /public/get_last_settlements_by_instrument
